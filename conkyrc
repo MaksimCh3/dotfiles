@@ -1,0 +1,90 @@
+conky.config = {
+-- -- Conky settings -- #
+	background = true,
+	update_interval = 1,
+
+	cpu_avg_samples = 2,
+	net_avg_samples = 2,
+
+	override_utf8_locale = true,
+
+	double_buffer = true,
+	no_buffers = true,
+
+	text_buffer_size = 32768,
+	imlib_cache_size = 0,
+
+-- -- Window specifications -- #
+	own_window = true,
+	own_window_type = 'override',
+    own_window_transparent = false,
+	own_window_class = Conky,
+	own_window_argb_visual = true,
+	own_window_argb_value = 120,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	own_window_colour = '#000000',
+
+	minimum_width = 340,
+	minimum_height = 440,
+
+	border_inner_margin = 10,
+	border_outer_margin = 0,
+	alignment = 'bottom_right',
+	gap_x = 20,
+	gap_y = 20,
+
+-- -- Graphics settings -- #
+	draw_shades = false,
+    draw_outline = false,
+    draw_borders = false,
+    draw_graph_borders = true,
+
+	-- Conky on second monitor
+	xinerama_head = 2,
+
+-- -- Text settings -- #
+-- Ícones: ${font Conky Icons:size=14}
+	use_xft = true,
+	font = 'DejaVu Sans Mono:size=9',
+	xftalpha = 0.8,
+	uppercase = false,
+	default_color = '#FFFFFF',
+--	format_human_readable = true,
+};
+
+conky.text = [[
+${alignc}${color #ffa500}${font :size 16}Uptime: ${uptime}${font}
+$hr
+
+${color}CPU: ${template3}${acpitemp}°C${goto 222}${color}HDD: ${template3}${sudo hddtemp /dev/sda}°C
+CPU0: ${cpu cpu0}%${goto 90}${cpubar 9,90 cpu0}${goto 222}${color}WRITE HDD: ${template2}$diskio_write
+CPU2: ${cpu cpu2}%${goto 90}${cpubar 9,90 cpu2}${goto 222}${color}READ HDD: ${template2}${diskio_read}
+CPU1: ${cpu cpu1}%${goto 90}${cpubar 9,90 cpu1}
+CPU3: ${cpu cpu3}%${goto 90}${cpubar 9,90 cpu3}
+
+$hr
+
+${color}ROOT: ${color white}${fs_used_perc /}%${goto 100}${fs_used /}/${fs_size /}${goto 222}${fs_bar 9,120 /}
+${color}HOME: ${color white}${fs_used_perc /home}%${goto 100}${fs_used /home}/${fs_size /home}${goto 222}${fs_bar 9,120 /home}
+${color}RAM: ${color white}$memperc%${goto 100}$mem/$memmax${goto 222}${membar 9, 120}
+${color}SWAP: ${color white}$swapperc%${goto 100}$swap/$swapmax${goto 222}${swapbar 9,120}
+
+$hr
+
+${goto 140}${color #975DC3}WLAN${goto 272}ETH${color}
+${color #19957C}Downloads:$color${goto 140}${downspeed wlp3s0}k/s${goto 272}${downspeed enp2s0}k/s
+${color #19957C}Upload:$color${goto 140}${upspeed wlp3s0}k/s${goto 272}${upspeed enp2s0}k/s
+
+$hr
+
+Processes:${color #975DC3} $processes/$running_processes
+${color #ffb52a}${goto 245}(%)${goto 300}(%)
+${goto 20}Name ${goto 190}Pid${goto 244}Cpu${goto 297}Mem${color}
+${goto 20}${color #AB292B}${top_mem name 1} ${goto 180}${top_mem pid 1}${goto 235}${top_mem cpu 1}${goto 290}${top_mem mem 1}
+${goto 20}${top_mem name 2} ${goto 180}${top_mem pid 2}${goto 235}${top_mem cpu 2}${goto 290}${top_mem mem 2}
+${goto 20}${top_mem name 3} ${goto 180}${top_mem pid 3}${goto 235}${top_mem cpu 3}${goto 290}${top_mem mem 3}${color}
+${goto 20}${top name 1} ${goto 180}${top pid 1}${goto 235}${top cpu 1}${goto 290}${top mem 1}
+${goto 20}${top name 2} ${goto 180}${top pid 2}${goto 235}${top cpu 2}${goto 290}${top mem 2}
+${goto 20}${top name 3} ${goto 180}${top pid 3}${goto 235}${top cpu 3}${goto 290}${top mem 3}
+${goto 20}${top name 4} ${goto 180}${top pid 4}${goto 235}${top cpu 4}${goto 290}${top mem 4}
+]]
