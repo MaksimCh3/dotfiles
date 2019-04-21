@@ -1,0 +1,56 @@
+
+!--------------------------------!
+!	 URXVT SETTINGS          !
+!--------------------------------!
+
+
+
+URxvt.font: xft:DejaVu Sans Mono:size=11:antialias=false
+URxvt.boldFont: xft:DejaVu Sans Mono: size=11:antialias=false:style=bold
+URxvt.scrollBar: false
+
+URxvt*foreground:	#19957C
+
+! black
+URxvt*color0:		#31363B
+URxvt*color8:		#4D4D4D
+
+! red
+URxvt*color2:		#21D96D
+URxvt*color10:		#0BD961
+
+! yellow
+URxvt*color3:		#FCC74C
+URxvt*color11:		#FDE04B
+
+! blue
+URxvt*color4:		#3DAEE9
+URxvt*color12:		#3D95E9
+
+! magenta
+URxvt*color5:		#9847B5
+URxvt*color13:		#A94FC9
+
+! cyan
+URxvt*color6:		#1ABC9C
+URxvt*color14:		#1CDC9A
+
+! white
+URxvt*color7:		#EFF0F1
+URxvt*color15:		#FCFCFC
+
+! transparency
+URxvt*depth: 32
+URxvt*background: #042229
+!rgba:0000/0000/0200/c800
+
+URxvt.saveLines: 5000
+URxvt.letterSpace: -1
+
+! URL
+URxvt.perl-ext-common: default, matcher, clipboard
+URxvt.url-launcher: firefox
+URxvt.matcher.button: 1
+URxvt.underlineURLs: true
+
+URxvt*cursorColot: #99FF00
