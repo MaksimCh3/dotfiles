@@ -1,0 +1,84 @@
+
+* {
+	color-background: #042229EE; /* CC - 80 opacity */
+	color-text: #19957C;
+	color-text-active: #DFDFDF;
+	color-scrollbar-handle: #975DC3;
+	color-entry: #DFDFDF;
+	color-entry-hints: #975DC3;
+	color-background-alt: #084451;
+	color-border: #084451;
+
+	spacing: 0;
+	background-color: transparent;
+
+	font: "Roboto Mono 13";
+}
+
+window {
+	transparency: "real";
+	/*fullscreen: true;*/
+	background-color: @color-background;
+}
+
+mainbox {
+	children: [inputbar, message, sidebar, listview];
+	spacing: 30px;
+	/*margin: 20%;*/
+	padding: 30px 0;
+	border: 1px;
+	border-color: @color-border;
+}
+
+inputbar {
+	padding: 0 30px;
+	children: [prompt, textbox-prompt-colon, entry, case-indicator];
+}
+
+prompt {
+	text-color: @color-entry-hints;
+}
+
+textbox-prompt-colon {
+	expand: false;
+	str: ":";
+	margin: 0 1ch 0 0;
+	text-color: @color-entry-hints;
+}
+
+entry {
+	text-color: @color-entry; 
+}
+
+listview {
+	scrollbar: true;
+	margin: 0 10px 0 20px;
+}
+
+scrollbar {
+	background-color: @color-background-alt;
+	handle-color: @color-scrollbar-handle;
+	handle-width: 12px;
+	margin: 0 0 0 20px;
+}
+
+element {
+	padding: 5px;
+	highlight: bold underline;
+}
+
+element normal {
+	background-color: transparent;
+}
+
+element selected {
+	background-color: @color-background-alt;
+}
+
+element normal normal, element alternate normal {
+	text-color: @color-text;
+}
+
+element selected normal {
+	text-color: @color-text-active;
+}
